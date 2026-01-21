@@ -13,9 +13,7 @@ X, y = datasets.load_iris(return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 params = {
-    "solver": "liblinear",
     "max_iter": 200,
-    "multi_class":"auto",
     "random_state":42
 }
 
@@ -45,6 +43,7 @@ with mlflow.start_run():
     mlflow.log_metric("recall", recall)
     mlflow.log_metric("f1_score", f1)
     
+
     # set a tag that we can use to remind ourselves what this run was about
     mlflow.set_tag("Training Info", "Basic Logistic Regression model on Iris dataset")
 
